@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
@@ -13,7 +14,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        //
+        $cat=Categoria::get();
+        return view('cat.index', compact('cat'));
     }
 
     /**
@@ -34,7 +36,15 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre_categoria'=>'required',
+        ]);
+
+        $cat=new Categoria;
+        $cat->nombre_categoria=$request->nombre_categoria;
+        $cat->descripcion=$request->descripcion;
+        $cat->save();
+        return redirect()->route('cat.index')->with('success', 'Categoria añadida');
     }
 
     /**
@@ -43,9 +53,9 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categoria $cat)
     {
-        //
+        return view('tareas.index', ['cat'=>$cat]);
     }
 
     /**
@@ -66,9 +76,17 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $cat)
     {
-        //
+        $request->validate([
+            'nombre_categoria'=>'required',
+        ]);
+
+        $cat= Categoria::find($cat);
+        $cat->nombre_categoria=$request->nombre_categoria;
+        $cat->descripcion=$request->descripcion;
+        $cat->save();
+        return redirect()->route('cat.index')->with('success', 'Categoria actualizada');
     }
 
     /**
@@ -77,8 +95,10 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($cat)
     {
-        //
+        $cat=Categoria::find($cat);
+        $cat->each->delete();
+        return redirect()->route('cat.index');
     }
 }
