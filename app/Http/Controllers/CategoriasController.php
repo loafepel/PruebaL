@@ -15,7 +15,7 @@ class CategoriasController extends Controller
     public function index()
     {
         $cat=Categoria::get();
-        return view('cat.index', compact('cat'));
+        return view('categorias.index', compact('cat'));
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoriasController extends Controller
         $cat->nombre_categoria=$request->nombre_categoria;
         $cat->descripcion=$request->descripcion;
         $cat->save();
-        return redirect()->route('cat.index')->with('success', 'Categoria añadida');
+        return redirect()->route('categorias.index')->with('success', 'Categoria añadida');
     }
 
     /**
@@ -55,7 +55,7 @@ class CategoriasController extends Controller
      */
     public function show(Categoria $cat)
     {
-        return view('tareas.index', ['cat'=>$cat]);
+        return view('categorias.update', ['cat'=>$cat]);
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoriasController extends Controller
         $cat->nombre_categoria=$request->nombre_categoria;
         $cat->descripcion=$request->descripcion;
         $cat->save();
-        return redirect()->route('cat.index')->with('success', 'Categoria actualizada');
+        return redirect()->route('categorias.index')->with('success', 'Categoria actualizada');
     }
 
     /**
@@ -99,6 +99,6 @@ class CategoriasController extends Controller
     {
         $cat=Categoria::find($cat);
         $cat->each->delete();
-        return redirect()->route('cat.index');
+        return redirect()->route('categorias.index');
     }
 }

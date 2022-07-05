@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Tarea;
 
 class TareaController extends Controller
 {
@@ -13,7 +14,7 @@ class TareaController extends Controller
      */
     public function index()
     {
-        //
+        return view('tareas.index', compact('tareas'));
     }
 
     /**
@@ -34,7 +35,18 @@ class TareaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre_tarea'=>'required',
+            'categoria_id'=>'required'
+        ]);
+
+        $tarea= new Tarea;
+        $tarea->nombre_tarea=$request->nombre_tarea;
+        $tarea->descripcion=$request->descripcion;
+        $tarea->categoria_id=$request->categoria_id;//auth()->categorias()->id();
+
+        $tarea->save();
+        return redirect()->route('tareas.index')->with('success', 'Tarea añadida');
     }
 
     /**
