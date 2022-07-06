@@ -16,6 +16,9 @@ use App\Http\Controllers\TareaController;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/home', function () {
+    return view('home');
+});
 
 Route::resource('Tarea', 'App\Http\Controllers\TareaController');
 Route::resource('Cat', 'App\Http\Controllers\CategoriasController');
