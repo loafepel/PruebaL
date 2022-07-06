@@ -38,7 +38,7 @@ class CategoriasController extends Controller
     {
         $request->validate([
             'nombre_categoria'=>'required',
-            'color'=>'required'
+            'color'=>'required|max:7'
         ]);
 
         $cat=new Categoria;
