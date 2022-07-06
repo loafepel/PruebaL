@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_categoria')->unique();
             $table->string('descripcion')->nullable();
+            $table->nvarchar('color');
             $table->timestamps();
         });
     }

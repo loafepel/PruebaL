@@ -14,7 +14,7 @@ use App\Http\Controllers\TareaController;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::resource('Tarea', 'App\Http\Controllers\TareaController');

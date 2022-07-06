@@ -38,11 +38,13 @@ class CategoriasController extends Controller
     {
         $request->validate([
             'nombre_categoria'=>'required',
+            'color'=>'required'
         ]);
 
         $cat=new Categoria;
         $cat->nombre_categoria=$request->nombre_categoria;
         $cat->descripcion=$request->descripcion;
+        $cat->color=$request->color;
         $cat->save();
         return redirect()->route('categorias.index')->with('success', 'Categoria añadida');
     }
