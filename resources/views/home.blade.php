@@ -14,7 +14,7 @@
         
            
         <h5 class="card-title">{{$vista->nombre_tarea}}</h5>
-        <p class="card-text">{{$vista->nombre_categoria}}</p>
+        <p class="card-text" style="color: {{$vista->color}}">{{$vista->nombre_categoria}}</p>
         <p class="card-text" style="line-height: 1">{{$vista->descripcion}}</p>
         
     </div>

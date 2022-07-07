@@ -8,7 +8,7 @@ use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class VistaController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      *
