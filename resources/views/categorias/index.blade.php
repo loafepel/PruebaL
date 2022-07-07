@@ -21,13 +21,13 @@
             @foreach ($cats as $cat)
             <tr>
                 <td>{{$cat->nombre_categoria}}</td>
-                <td>{{$cat->color}}</td>
+                <td type="color">{{$cat->color}}</td>
                 <td>{{$cat->descripcion}}</td>
                 <td>
-                    <a href="{{ route('Cat.update', $cat) }}" class="btn btn-secondary btn-sm">Editar</a>
+                    <a href="{{ route('cat.show', $cat)}}" class="btn btn-secondary btn-sm">Editar</a>
                 </td>
                 <td>
-                    <form action="{{route('Cat.destroy', $cat)}}" method="POST">
+                    <form action="{{route('cat.destroy', $cat)}}" method="POST">
                     
                     @method('DELETE')
                     @csrf

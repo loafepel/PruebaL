@@ -23,9 +23,9 @@ class CategoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Categoria $cat)
     {
-        //
+        return view('categorias.create', ['cat'=>$cat]);
     }
 
     /**
@@ -46,7 +46,7 @@ class CategoriasController extends Controller
         $cat->descripcion=$request->descripcion;
         $cat->color=$request->color;
         $cat->save();
-        return redirect()->route('Cat.index')->with('success', 'Categoria añadida');
+        return redirect()->route('cat.index')->with('success', 'Categoria añadida');
     }
 
     /**
@@ -57,7 +57,8 @@ class CategoriasController extends Controller
      */
     public function show(Categoria $cat)
     {
-        return view('categorias.update', ['cat'=>$cat]);
+        //$cat=Categoria::find($cat);
+        return view('categorias.update', compact('cat'));
     }
 
     /**
@@ -80,15 +81,13 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $cat)
     {
-        $request->validate([
-            'nombre_categoria'=>'required',
-        ]);
-
-        $cat= Categoria::find($cat);
+        
+        $cat=Categoria::find($cat);
         $cat->nombre_categoria=$request->nombre_categoria;
         $cat->descripcion=$request->descripcion;
+        $cat->color=$request->color;
         $cat->save();
-        return redirect()->route('Cat.index')->with('success', 'Categoria actualizada');
+        return redirect()->route('cat.index')->with('success', 'Categoria actualizada');
     }
 
     /**
@@ -97,10 +96,10 @@ class CategoriasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cat)
+    public function destroy(Categoria $cat)
     {
         $cat=Categoria::find($cat);
         $cat->each->delete();
-        return redirect()->route('Cat.index');
+        return redirect()->route('cat.index')->with('success', 'Categoria borrada');
     }
 }

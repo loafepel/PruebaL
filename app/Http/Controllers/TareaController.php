@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Models\Tarea;
 
@@ -14,8 +15,8 @@ class TareaController extends Controller
      */
     public function index()
     {
-        $tarea= Tarea::get();
-        return view('tareas.index', compact('tarea'));
+        $tareas= Tarea::get();
+        return view('tareas.index', compact('tareas'));
     }
 
     /**
@@ -23,9 +24,11 @@ class TareaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Tarea $tarea)
     {
-        //
+        $cats=Categoria::select('id', 'nombre_categoria')->get();
+        
+        return view('tareas.create', ['tarea'=>$tarea, 'cats'=>$cats]);
     }
 
     /**
@@ -36,6 +39,7 @@ class TareaController extends Controller
      */
     public function store(Request $request)
     {
+       
         $request->validate([
             'nombre_tarea'=>'required',
             'categoria_id'=>'required'
@@ -47,7 +51,7 @@ class TareaController extends Controller
         $tarea->categoria_id=$request->categoria_id;//auth()->categorias()->id();
 
         $tarea->save();
-        return redirect()->route('tareas.index')->with('success', 'Tarea añadida');
+        return redirect()->route('tarea.index')->with('success', 'Tarea añadida');
     }
 
     /**
@@ -56,9 +60,9 @@ class TareaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function edit(Tarea $tarea)
     {
-        //
+        return view('tareas.update', compact('tarea'));
     }
 
     /**
@@ -67,9 +71,9 @@ class TareaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function show()
     {
-        //
+        
     }
 
     /**
@@ -79,9 +83,16 @@ class TareaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $tarea)
     {
-        //
+
+        $tarea= Tarea::find($tarea);
+        $tarea->nombre_tarea=$request->nombre_tarea;
+        $tarea->descripcion=$request->descripcion;
+        $tarea->categoria_id=$request->categoria_id;
+
+        $tarea->save();
+        return redirect()->route('tarea.index')->with('success', 'Tarea actualizada');
     }
 
     /**
@@ -90,8 +101,10 @@ class TareaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tarea $tarea)
     {
-        //
+        $tarea=Tarea::find($tarea);
+        $tarea->each->delete();
+        return redirect()->route('Tarea.index')->with('success', 'Tarea borrada');
     }
 }

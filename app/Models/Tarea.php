@@ -10,7 +10,7 @@ class Tarea extends Model
     use HasFactory;
 
     public function categoria(){
-        return $this->beLongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class);
     }
 
 }

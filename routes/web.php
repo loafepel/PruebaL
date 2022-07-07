@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TareaController;
+use App\Http\Controllers\CategoriasController;
+use App\Http\Controllers\vistaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,11 @@ use App\Http\Controllers\TareaController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/home', function () {
+/*Route::get('/home', function () {
     return view('home');
-});
+});*/
+//Route::get('/update/{id}', [\App\Http\Controllers\CategoriasController::class, 'tarea']);
 
-Route::resource('Tarea', 'App\Http\Controllers\TareaController');
-Route::resource('Cat', 'App\Http\Controllers\CategoriasController');
+Route::resource('tarea', 'App\Http\Controllers\TareaController');
+Route::resource('cat', 'App\Http\Controllers\CategoriasController');
+Route::resource('vista', 'App\Http\Controllers\VistaController');

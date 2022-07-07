@@ -1,6 +1,6 @@
 @extends('formato.app')
 @section('content')
-<form action="{{ route('Cat.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('cat.store')}}" method="POST" enctype="multipart/form-data">
     
 <div class="container col-md-4 col-md-offset-4">
     @csrf
