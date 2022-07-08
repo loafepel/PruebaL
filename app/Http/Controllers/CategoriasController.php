@@ -14,7 +14,7 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        $cats=Categoria::get();
+        $cats=Categoria::get();  
         return view('categorias.index', compact('cats'));
     }
 

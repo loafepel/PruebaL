@@ -21,7 +21,7 @@
             @foreach ($cats as $cat)
             <tr>
                 <td>{{$cat->nombre_categoria}}</td>
-                <td type="color">{{$cat->color}}</td>
+                <td type="color" style="color: {{$cat->color}}">{{$cat->color}}</td>
                 <td>{{$cat->descripcion}}</td>
                 <td>
                     <a href="{{ route('cat.show', $cat)}}" class="btn btn-secondary btn-sm">Editar</a>

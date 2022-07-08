@@ -18,7 +18,7 @@ use App\Http\Controllers\vistaController;
 Route::get('/', function () {
     return view('home');
 });
-/*Route::get('/home', function () {
+/*Route::get('/home',  function () {
     return view('home');
 });*/
 //Route::get('/update/{id}', [\App\Http\Controllers\CategoriasController::class, 'tarea']);

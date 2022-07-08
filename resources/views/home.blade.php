@@ -1,24 +1,22 @@
 @extends('formato.app')
 @section('content')
-@foreach ($vistas as $vista)
-<div class="card container" style="width: 18rem;">
-    <!--<img src="..." class="card-img-top" alt="...">-->
-    @if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
-    @endif
-
-    
-    <div class="card-body">
+<div class="container">
+    <div class="row">
+        @foreach ($vistas as $vista)
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+               
         
-           
-        <h5 class="card-title">{{$vista->nombre_tarea}}</h5>
-        <p class="card-text" style="color: {{$vista->color}}">{{$vista->nombre_categoria}}</p>
-        <p class="card-text" style="line-height: 1">{{$vista->descripcion}}</p>
-        
+            
+            <div class="card-body col-md-12" style="color: {{$vista->color}}">    
+                <h5 class="card-title">{{$vista->nombre_tarea}}</h5>
+                <p class="card-text">{{$vista->nombre_categoria}}</p>
+                <p class="card-text" style="line-height: 1">{{$vista->descripcion}}</p>
+                <p class="card-text" style="background: {{$vista->color}}">-</p>
+            </div>
+          </div>
+        </div>
+      @endforeach
     </div>
-   
-  </div>
-  @endforeach
+</div>
 @endsection
