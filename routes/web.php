@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\vistaController;
+use App\Http\Controllers\PruebaController;
 
 
 /*
@@ -30,3 +31,4 @@ Route::get('/', [\App\Http\Controllers\VistaController::class, 'index']);
 Route::resource('tarea', 'App\Http\Controllers\TareaController');
 Route::resource('cat', 'App\Http\Controllers\CategoriasController');
 Route::resource('vista', 'App\Http\Controllers\VistaController');
+Route::resource('prueba', 'App\Http\Controllers\PruebaController');

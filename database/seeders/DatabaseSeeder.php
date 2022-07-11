@@ -14,7 +14,50 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+         \App\Models\Municipio::create([
+            'nombre'=> "Cozumel"
+         ]);
+         
+         \App\Models\Municipio::create([
+            'nombre'=> "Felipe Carrillo Puerto"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Isla Mujeres"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Othón P. Blanco"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Benito Juárez"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "José María Morelos"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Lázaro Cárdenas"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Solidaridad"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Tulum"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Bacalar"
+         ]);
+
+         \App\Models\Municipio::create([
+            'nombre'=> "Puerto Morelos"
+         ]);
+    
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

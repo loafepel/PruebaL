@@ -22,7 +22,7 @@ class TareaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response 
      */
     public function create(Tarea $tarea)
     {
@@ -62,7 +62,8 @@ class TareaController extends Controller
      */
     public function edit(Tarea $tarea)
     {
-        return view('tareas.update', compact('tarea'));
+        $cats=Categoria::select('id', 'nombre_categoria')->get();
+        return view('tareas.update', ['tarea'=>$tarea, 'cats'=>$cats]);
     }
 
     /**

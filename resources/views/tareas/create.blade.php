@@ -25,6 +25,7 @@
     <div class="mb-3">
 
         <label for="categoria_id" class="form-label">Categoria</label>
+        
         <select class="form-select form-select-sm" type="text" name="categoria_id" aria-label=".form-select-sm example">
             <option selected>Categoria</option>
            

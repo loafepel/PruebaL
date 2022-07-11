@@ -18,7 +18,7 @@ class CategoriasController extends Controller
         return view('categorias.index', compact('cats'));
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

@@ -19,8 +19,21 @@
               <label for="descripcion" class="form-label">Descripcion</label>
               <input type="text" name="descripcion" class="form-control" value="{{$tarea->descripcion}}">
 
-              <label for="categoria_id" class="form-label">categoria_id</label>
-              <input type="text" name="categoria_id" class="form-control" value="{{$tarea->categoria_id}}">
+              <!--<label for="categoria_id" class="form-label">categoria_id</label>
+              <input type="text" name="categoria_id" class="form-control" value="{{$tarea->categoria_id}}">-->
+
+              <label for="categoria_id" class="form-label">Categoria</label>
+              <select class="form-select form-select-sm" type="text" name="categoria_id" aria-label=".form-select-sm example" >
+              <option selected>Categoria</option>
+           
+              @foreach ($cats as $cat)
+              <option value="{{$cat->id}}">{{$cat->nombre_categoria}}</option>
+              @endforeach
+              
+            
+            
+
+          </select>
               
               
             </div>
