@@ -5,6 +5,7 @@ use App\Http\Controllers\TareaController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\vistaController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,16 @@ use App\Http\Controllers\vistaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('home');
-});
+});*/
+
 /*Route::get('/home',  function () {
     return view('home');
 });*/
 //Route::get('/update/{id}', [\App\Http\Controllers\CategoriasController::class, 'tarea']);
+
+Route::get('/', [\App\Http\Controllers\VistaController::class, 'index']);
 
 Route::resource('tarea', 'App\Http\Controllers\TareaController');
 Route::resource('cat', 'App\Http\Controllers\CategoriasController');
