@@ -21,7 +21,7 @@
     
                 <label for="municipio_id" class="form-label">Municipio</label>
                 
-                <select class="form-select form-select-sm" type="text" name="municipio_id" aria-label=".form-select-sm example"  value="{{$prueba->municipio_id}}">
+                <select class="form-select form-select-sm" type="text" name="municipio_id" aria-label=".form-select-sm example">
                     <option selected>Municipio</option>
                    
                     @foreach ($muns as $mun)

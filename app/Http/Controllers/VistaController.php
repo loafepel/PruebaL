@@ -17,6 +17,7 @@ class VistaController extends Controller
     public function index(Vista $vistas)
     {
         $vistas=Vista::get();
+        
         return view('home', compact('vistas'));
     }
 

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         DB::statement("create VIEW vistas as  
-        SELECT tareas.nombre_tarea, tareas.descripcion, categorias.nombre_categoria FROM tareas
+        SELECT tareas.nombre_tarea, tareas.descripcion, categorias.nombre_categoria, categorias.color FROM tareas
         LEFT JOIN categorias 
         on tareas.categoria_id = categorias.id");
         }
