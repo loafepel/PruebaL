@@ -16,7 +16,8 @@ class TareaController extends Controller
     public function index()
     {
         $tareas= Tarea::get();
-        return view('tareas.index', compact('tareas'));
+        $cats=Categoria::select('id', 'nombre_categoria')->get();
+        return view('tareas.index',['tareas'=>$tareas, 'cats'=>$cats]);
     }
 
     /**

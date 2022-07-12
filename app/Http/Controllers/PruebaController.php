@@ -16,7 +16,8 @@ class PruebaController extends Controller
     public function index()
     {
         $pruebas= Prueba::get();
-        return view('municipios.index', compact('pruebas'));
+        $muns=Municipio::select('id', 'nombre')->get();
+        return view('municipios.index', ['muns'=>$muns, 'pruebas'=>$pruebas]);
     }
 
     /**

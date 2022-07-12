@@ -24,21 +24,21 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{route('tarea.index')}}">Tareas Ver</a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{route('tarea.create')}}">Tareas Crear</a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{route('cat.index')}}">Categorias Ver</a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{route('cat.create')}}">Categorias Crear</a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a class="nav-link" href="{{route('prueba.index')}}">Municipios ver</a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{route('prueba.create')}}">Municipios crear</a>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>

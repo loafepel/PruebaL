@@ -12,10 +12,11 @@ class CategoriasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Categoria $cat)
     {
         $cats=Categoria::get();  
-        return view('categorias.index', compact('cats'));
+       
+        return view('categorias.index', ['cats'=>$cats, 'cat'=>$cat]);
     }
 
     /** 

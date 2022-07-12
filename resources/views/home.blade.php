@@ -1,9 +1,9 @@
 @extends('formato.app')
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row" >
         @foreach ($vistas as $vista)
-        <div class="col-sm-4">
+        <div class="col-sm-4" >
             <div class="card" style="width: 18rem;">
                
         
