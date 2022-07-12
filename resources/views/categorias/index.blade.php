@@ -25,66 +25,8 @@
                         <td>{{ $cat->descripcion }}</td>
 
                         <td>
-                            {{-- <a href="{{ route('cat.show', $cat)}}" class="btn btn-secondary btn-sm">Editar</a> --}}
-                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                Editar
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('cat.show', $cat) }}" class="container col-md-4"
-                                                method="POST" enctype="multipart/form-data">
-                                                @method('PUT')
-
-                                                @csrf
-                                                @if (session('success'))
-                                                    <h6 class="alert alert-su"> {{ session('success') }} </h6>
-                                                @endif
-
-                                                @error('title')
-                                                    <h6 class="alert alert-danger">{{ $message }}</h6>
-                                                @enderror
-
-                                                <div>
-                                                    <label for="nombre_categoria" class="form-label">Categoria</label>
-                                                    <input type="text" name="nombre_categoria" class="form-control"
-                                                        value="{{ $cat->nombre_categoria }}">
-
-                                                    <label for="color" class="form-label">Color</label>
-                                                    <input type="color" name="color"
-                                                        class="form-control form-control-color" id="exampleColorInput"
-                                                        value="{{ $cat->color }}" title="Choose your color">
-
-                                                    <label for="descripcion" class="form-label">Descripcion</label>
-                                                    <input type="text" name="descripcion" class="form-control"
-                                                        value="{{ $cat->descripcion }}">
-
-
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Actualizar</button>
-                                        </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                                    </div>
-                                </div>
-                            </div>
-
-    </div>
-    </td>
+                            <a href="{{ route('cat.show', $cat)}}" class="btn btn-secondary btn-sm">Editar</a>
+                     
     <td>
         <form action="{{ route('cat.destroy', $cat) }}" method="POST">
 
@@ -118,17 +60,7 @@
                         <div class="col-md-12">
                             @csrf
 
-                            @if (session('success'))
-                                <h6 class="alert alert-su"> {{ session('success') }} </h6>
-                            @endif
-
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    @foreach ($errors->all() as $error)
-                                        - {{ $error }} <br>
-                                    @endforeach
-                                </div>
-                            @endif
+                            
                             <div>
                                 <label for="nombre_categoria" class="form-label">Titulo</label>
                                 <input type="text" name="nombre_categoria" class="form-control" placeholder="Categoria"
